@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The BarBQ | Premium Restaurant & Catering</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #ffffff; }
+        .food-gradient { background: linear-gradient(135deg, #ea580c, #dc2626); }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER / NAVIGATION -->
+    <nav class="fixed w-full bg-[#0d0d0d]/90 backdrop-blur-md border-b border-zinc-800 z-50 px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-black tracking-wider text-orange-500"><i class="fa-solid fa-fire-burner mr-2"></i>THE BARBQ</h1>
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
+            <a href="#welcome-hero" class="hover:text-white transition">Home</a>
+            <a href="#menu-section" class="hover:text-white transition">Our Menu</a>
+            <a href="#about-section" class="hover:text-white transition">About Us</a>
+            <a href="#contact-section" class="hover:text-white transition">Contact</a>
+        </div>
+        <a href="#menu-section" class="food-gradient text-white text-xs font-bold px-5 py-2.5 rounded-full uppercase tracking-wider hover:opacity-90 transition">Order Online</a>
+    </nav>
+
+    <!-- 2. WELCOME HERO ENTRY PAGE -->
+    <section id="welcome-hero" class="pt-32 pb-20 px-6 max-w-6xl mx-auto text-center">
+        <span class="bg-orange-500/10 text-orange-400 text-xs px-4 py-1.5 rounded-full font-semibold border border-orange-500/20 uppercase tracking-widest">Welcome to The BarBQ</span>
+        <h2 class="text-4xl md:text-6xl font-black mt-6 tracking-tight leading-none">Taste the Real Smokey <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Barbecue Perfection</span></h2>
+        <p class="text-zinc-400 text-sm mt-4 max-w-xl mx-auto">Managed proudly by <strong class="text-white">Javaid Ahmad</strong>. Fresh ingredients, traditional coal grill, and a taste that brings you back.</p>
+        
+        <!-- Gallery Group (Staff & Hotel Images) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+            <!-- یہاں اپنی پہلی ہوٹل یا اسٹاف کی امیج کا پاتھ دیں -->
+            <div class="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/50 p-2 group">
+                <img src="staff1.jpg" alt="Our Professional Staff" class="w-full h-64 object-cover rounded-xl group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=500&q=80'">
+                <p class="text-xs text-zinc-500 mt-2 font-medium">Our Professional Kitchen Staff</p>
+            </div>
+            <!-- دوسری تصویر -->
+            <div class="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/50 p-2 group">
+                <img src="hotel_ambiance.jpg" alt="Hotel Ambiance" class="w-full h-64 object-cover rounded-xl group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=80'">
+                <p class="text-xs text-zinc-500 mt-2 font-medium">Warm & Luxurious Ambiance</p>
+            </div>
+            <!-- تیسری تصویر -->
+            <div class="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/50 p-2 group">
+                <img src="staff2.jpg" alt="Serving Staff" class="w-full h-64 object-cover rounded-xl group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=500&q=80'">
+                <p class="text-xs text-zinc-500 mt-2 font-medium">Ready to Serve You With Love</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-zinc-900 max-w-6xl mx-auto">
+
+    <!-- 3. DISHES MENU SECTION -->
+    <section id="menu-section" class="py-20 px-6 max-w-5xl mx-auto">
+        <h3 class="text-2xl font-black mb-8 uppercase tracking-wider text-zinc-300 flex items-center gap-2"><i class="fa-solid fa-utensils text-orange-500"></i> Hot & Fresh Menu</h3>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Item 1 -->
+            <div onclick="openOrderModal('Special Seekh Kabab', 'Rs. 450')" class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 cursor-pointer hover:border-orange-500 hover:-translate-y-1 transition duration-300 group">
+                <div class="overflow-hidden rounded-xl aspect-video bg-black">
+                    <img src="seekh_kabab.jpg" alt="Seekh Kabab" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=500&q=80'">
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                    <h4 class="font-bold text-md text-white">Special Seekh Kabab</h4>
+                    <span class="text-orange-500 font-extrabold text-sm">Rs. 450</span>
+                </div>
+                <p class="text-[11px] text-zinc-500 mt-1">Juicy minced beef grilled to perfection over charcoal smoke.</p>
+            </div>
+
+            <!-- Item 2 -->
+            <div onclick="openOrderModal('Chicken Tikka Boti', 'Rs. 550')" class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 cursor-pointer hover:border-orange-500 hover:-translate-y-1 transition duration-300 group">
+                <div class="overflow-hidden rounded-xl aspect-video bg-black">
+                    <img src="chicken_boti.jpg" alt="Chicken Tikka" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=500&q=80'">
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                    <h4 class="font-bold text-md text-white">Chicken Tikka Boti</h4>
+                    <span class="text-orange-500 font-extrabold text-sm">Rs. 550</span>
+                </div>
+                <p class="text-[11px] text-zinc-500 mt-1">Spicy marinated chicken cubes roasted on burning coal embers.</p>
+            </div>
+
+            <!-- Item 3 -->
+            <div onclick="openOrderModal('Mutton Ribs BBQ', 'Rs. 1400')" class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 cursor-pointer hover:border-orange-500 hover:-translate-y-1 transition duration-300 group">
+                <div class="overflow-hidden rounded-xl aspect-video bg-black">
+                    <img src="mutton_ribs.jpg" alt="Mutton Ribs" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80'">
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                    <h4 class="font-bold text-md text-white">Mutton Ribs BBQ</h4>
+                    <span class="text-orange-500 font-extrabold text-sm">Rs. 1400</span>
+                </div>
+                <p class="text-[11px] text-zinc-500 mt-1">Premium mutton ribs infused with secret spices and slow-cooked.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DYNAMIC ORDER MODAL (پاپ اپ فارم جو ڈش پر کلک کرنے سے کھلتا ہے) -->
+    <div id="orderModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center backdrop-blur-sm p-4">
+        <div class="bg-zinc-950 border border-zinc-800 p-6 rounded-2xl max-w-md w-full relative">
+            <h3 class="text-xl font-black text-orange-500 flex items-center gap-2"><i class="fa-solid fa-truck-ramp-box"></i> Place Your Order</h3>
+            <p class="text-xs text-zinc-400 mt-1">You are ordering: <span id="modal-dish-name" class="text-white font-bold"></span> (<span id="modal-dish-price" class="text-orange-400 font-semibold"></span>)</p>
+            
+            <!-- Details / Location Inputs -->
+            <div class="space-y-3 mt-4 text-left">
+                <div>
+                    <label class="text-[10px] text-zinc-400 uppercase font-bold block mb-1">Your Full Name</label>
+                    <input type="text" id="cust-name" class="w-full bg-zinc-900 border border-zinc-800 p-3 rounded-xl text-xs text-white focus:outline-none focus:border-orange-500" placeholder="e.g. Ali Khan">
+                </div>
+                <div>
+                    <label class="text-[10px] text-zinc-400 uppercase font-bold block mb-1">Mobile Number</label>
+                    <input type="tel" id="cust-phone" class="w-full bg-zinc-900 border border-zinc-800 p-3 rounded-xl text-xs text-white focus:outline-none focus:border-orange-500" placeholder="e.g. 03001234567">
+                </div>
+                <div>
+                    <label class="text-[10px] text-zinc-400 uppercase font-bold block mb-1">Delivery Address / Location Details</label>
+                    <textarea id="cust-address" rows="3" class="w-full bg-zinc-900 border border-zinc-800 p-3 rounded-xl text-xs text-white focus:outline-none focus:border-orange-500" placeholder="Street number, house location details..."></textarea>
+                </div>
+            </div>
+
+            <div class="flex gap-3 mt-6">
+                <button onclick="closeOrderModal()" class="w-1/3 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-xl font-bold uppercase text-[10px] transition text-zinc-400">Cancel</button>
+                <button onclick="submitOrderViaWhatsApp()" class="w-2/3 py-3 food-gradient text-white rounded-xl font-bold uppercase text-[10px] tracking-wider shadow-lg">Confirm & Send Order</button>
+            </div>
+        </div>
+    </div>
+
+    <hr class="border-zinc-900 max-w-5xl mx-auto">
+
+    <!-- 5. ABOUT SECTION -->
+    <section id="about-section" class="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h3 class="text-2xl font-black mb-4 uppercase tracking-wider text-zinc-300">About Our Legacy</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed max-w-2xl mx-auto">
+            Founded by <strong class="text-orange-400">Javaid Ahmad</strong>, The BarBQ has redefined the art of traditional live-fire cooking. We believe that BBQ is not just food; it's a sensory experience of fresh cuts, meticulously mixed secret rub spices, and the pure rustic essence of natural coal grill cooking. 
+        </p>
+    </section>
+
+    <!-- 6. CONTACT & GOOGLE MAPS SECTION -->
+    <section id="contact-section" class="py-16 bg-zinc-950 border-t border-zinc-900">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            
+            <!-- Contact Info and Mail -->
+            <div class="space-y-6">
+                <h4 class="text-xl font-black uppercase text-white">Get In Touch</h4>
+                <div class="space-y-4 text-sm text-zinc-400">
+                    <p class="flex items-center gap-3"><i class="fa-solid fa-phone text-orange-500 text-lg"></i> <span>+92 300 1234567</span></p>
+                    <p class="flex items-center gap-3"><i class="fa-solid fa-envelope text-orange-500 text-lg"></i> <a href="mailto:thebarbqhotel@gmail.com" class="hover:text-white transition">thebarbqhotel@gmail.com</a></p>
+                    <p class="flex items-center gap-3"><i class="fa-solid fa-user-tie text-orange-500 text-lg"></i> <span>Owner: Javaid Ahmad</span></p>
+                </div>
+            </div>
+
+            <!-- Google Map Trigger Button Section -->
+            <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 text-center">
+                <i class="fa-solid fa-map-location-dot text-4xl text-orange-500 mb-4 animate-bounce" style="animation-duration: 3s;"></i>
+                <h5 class="text-md font-bold mb-2">Find Us on Map</h5>
+                <p class="text-xs text-zinc-500 mb-4">Click below to load instant turn-by-turn driving routing instructions directly inside Google Maps Mobile Framework.</p>
+                
+                <!-- نوٹ: یہاں نیچے 'q=' کے بعد اپنے ہوٹل کی اصل جگہ کا نام یا کوآرڈینیٹس ڈالیں -->
+                <a href="https://www.google.com/maps/search/?api=1&query=The+BarBQ+Restaurant" target="_blank" class="inline-block food-gradient text-white text-xs font-bold px-6 py-3 rounded-xl uppercase tracking-wider hover:opacity-90 transition">
+                    <i class="fa-solid fa-location-arrow mr-2"></i> Open Google Maps
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer class="bg-[#050505] py-6 text-center text-[10px] uppercase tracking-widest text-zinc-600 border-t border-zinc-950">
+        <p>© 2026 The BarBQ | Powered by Mudassir Shabbir Workspace.</p>
+    </footer>
+
+    <!-- JAVASCRIPT CODE LOGIC FOR INTERACTION -->
+    <script>
+        let selectedDish = "";
+        let selectedPrice = "";
+
+        // فنکشن: مینو ڈش پر کلک کرنے سے آرڈر فارم پاپ اپ کھولنا
+        function openOrderModal(name, price) {
+            selectedDish = name;
+            selectedPrice = price;
+            document.getElementById('modal-dish-name').innerText = name;
+            document.getElementById('modal-dish-price').innerText = price;
+            
+            const modal = document.getElementById('orderModal');
+            modal.style.display = 'flex';
+        }
+
+        // فنکشن: فارم بند کرنا
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        // فنکشن: آرڈر ڈیٹا کو واٹس ایپ پر بھیجنا (بغیر سرور کے سب سے بہترین مائیکرو ساس طریقہ)
+        function submitOrderViaWhatsApp() {
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+
+            if (!name || !phone || !address) {
+                return alert("Kindly fill all your delivery details first!");
+            }
+
+            // آرڈر میسیج فارمیٹنگ
+            const message = `*--- NEW ORDER RECEIVED ---*%0A` +
+                            `*Dish:* ${selectedDish}%0A` +
+                            `*Price:* ${selectedPrice}%0A%0A` +
+                            `*Customer Info:*%0A` +
+                            `• Name: ${name}%0A` +
+                            `• Phone: ${phone}%0A` +
+                            `• Location / Address: ${address}`;
+
+            // یہاں ہوٹل مالک یا ریسٹورنٹ کا اصل واٹس ایپ نمبر ڈالیں (ملکی کوڈ کے ساتھ، جیسے 923001234567)
+            const hotelWhatsAppNumber = "923001234567"; 
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${hotelWhatsAppNumber}&text=${message}`;
+            
+            // کسٹمر کو واٹس ایپ پر ری ڈائریکٹ کرنا تاکہ آرڈر بک ہو جائے
+            window.open(whatsappUrl, '_blank');
+            closeOrderModal();
+        }
+    </script>
+
+</body>
+</html>
