@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The BarBQ - Restaurant Menu & Order</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #fcfaf7;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            color: #ff6b00;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #222;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #ff6b00;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .menu-category {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid #ff6b00;
+        }
+        .menu-category h3 {
+            font-size: 1.5rem;
+            color: #ff6b00;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+        .item-info h4 {
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .item-price {
+            font-weight: bold;
+            color: #e65c00;
+            white-space: nowrap;
+        }
+        .order-btn {
+            background-color: #ff6b00;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            transition: 0.2s;
+        }
+        .order-btn:hover {
+            background-color: #e65c00;
+        }
+        .about-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        .about-box p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        .owner-highlight {
+            font-weight: bold;
+            color: #ff6b00;
+            font-size: 1.2rem;
+        }
+        .map-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        .map-container {
+            position: relative;
+            padding-bottom: 45%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .contact-info {
+            text-align: center;
+            background: #222;
+            color: #fff;
+            padding: 40px 20px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        .contact-info a {
+            color: #ff6b00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            border-top: 3px solid #ff6b00;
+        }
+        footer strong {
+            color: #fff;
+        }
+        .cart-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff6b00;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            font-weight: bold;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>The BarBQ</h1>
+        <p>پاکستان کا سب سے بہترین اور لذیذ بار بی کیو، کڑھائی اور ہانڈی پوائنٹ۔</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- About Section -->
+        <section class="about-box">
+            <h2 class="section-title">ہمارے بارے میں (About Us)</h2>
+            <p>دی بار بی کیو (The BarBQ) پر تمام کھانوں کی تیاری میں صفائی اور بہترین معیار کا خاص خیال رکھا جاتا ہے۔</p>
+            <p class="owner-highlight">ہوٹل کے مالک اور سرپرستِ اعلیٰ: محترم محمد شبیر صاحب</p>
+        </section>
+
+        <!-- Menu Section -->
+        <section>
+            <h2 class="section-title">ہمارا مینو (Our Menu)</h2>
+            <div class="menu-grid">
+                
+                <!-- Bar B. Q. -->
+                <div class="menu-category">
+                    <h3>🔥 Bar B. Q.</h3>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Special The BBQ Shahi Kabab</h4></div>
+                        <div class="item-price">Rs. 800 / 1500 <button class="order-btn" onclick="addToCart('Special Shahi Kabab')">Order</button></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Chicken Tikka Boti</h4></div>
+                        <div class="item-price">Rs. 450 / 800 <button class="order-btn" onclick="addToCart('Chicken Tikka Boti')">Order</button></div>
+                    </div>
+                </div>
+
+                <!-- Karahi -->
+                <div class="menu-category">
+                    <h3>🍲 Karahi & Handi</h3>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Special BBQ Chicken Karahi</h4></div>
+                        <div class="item-price">Rs. 1250 / 2300 <button class="order-btn" onclick="addToCart('Special BBQ Chicken Karahi')">Order</button></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Special BBQ Mutton Karahi</h4></div>
+                        <div class="item-price">Rs. 2000 / 3800 <button class="order-btn" onclick="addToCart('Special BBQ Mutton Karahi')">Order</button></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Live Location Map Section -->
+        <section class="map-section">
+            <h2 class="section-title">ہمارا مقام اور لائیو ٹریکنگ (Find Us & Track)</h2>
+            <p>آپ گوگل میپ کے ذریعے ہمارے ہوٹل کی لوکیشن دیکھ سکتے ہیں اور اپنی دوری چیک کر سکتے ہیں:</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.5471415053744!2d74.320473!3d31.520370!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDMxJzEzLjMiTiA3NMKwMTknMTMuNyJF!5e0!3m2!1sen!2spk!4v1625000000000!5m2!1sen!2spk" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-info">
+            <h2>رابطہ اور آن لائن آرڈر</h2>
+            <p>📧 ای میل ایڈریس: <a href="mailto:barbqofficall@gmail.com">barbqofficall@gmail.com</a></p>
+            <p>📞 واٹس ایپ نمبر: <a href="https://wa.me/923067548302" target="_blank">03067548302</a></p>
+        </section>
+
+    </div>
+
+    <!-- Floating Cart Trigger -->
+    <div class="cart-status" id="cart" onclick="placeOrder()">
+        🛒 <span id="cart-text">0 Items Selected</span> - Place Order Now
+    </div>
+
+    <footer>
+        <p>Developed with ❤️ | <strong>made by mudassir shabbir</strong></p>
+    </footer>
+
+    <script>
+        let selectedItems = [];
+
+        function addToCart(itemName) {
+            selectedItems.push(itemName);
+            const cartDiv = document.getElementById('cart');
+            const cartText = document.getElementById('cart-text');
+            cartDiv.style.display = 'block';
+            cartText.innerText = selectedItems.length + " Item(s) Selected";
+        }
+
+        function placeOrder() {
+            if(selectedItems.length === 0) return;
+            const email = "barbqofficall@gmail.com";
+            const subject = encodeURIComponent("New Food Order from The BarBQ Website");
+            const body = encodeURIComponent("السلام علیکم!\n\nویب سائٹ سے نیا آرڈر موصول ہوا ہے:\n\nآئٹمز: " + selectedItems.join(', ') + "\n\nبراہ کرم آرڈر کنفرم کریں۔\n\nشکریہ!");
+            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+            selectedItems = [];
+            document.getElementById('cart').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
