@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The BarBQ - Restaurant Menu & Order</title>
+    <title>The BarBQ - Restaurant Menu & WhatsApp Order</title>
     <style>
         * {
             box-sizing: border-box;
@@ -133,22 +133,20 @@
             margin-bottom: 60px;
             text-align: center;
         }
-        .map-container {
-            position: relative;
-            padding-bottom: 45%;
-            height: 0;
-            overflow: hidden;
+        .map-btn {
+            display: inline-block;
+            background-color: #4285F4;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
             border-radius: 8px;
+            font-weight: bold;
             margin-top: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3);
+            transition: 0.3s;
         }
-        .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+        .map-btn:hover {
+            background-color: #357ae8;
         }
         .contact-info {
             text-align: center;
@@ -178,7 +176,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #ff6b00;
+            background: #25D366;
             color: white;
             padding: 15px 25px;
             border-radius: 30px;
@@ -187,6 +185,11 @@
             font-weight: bold;
             display: none;
             z-index: 1000;
+            transition: 0.3s;
+        }
+        .cart-status:hover {
+            background: #1ebd58;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -203,7 +206,7 @@
         <section class="about-box">
             <h2 class="section-title">ہمارے بارے میں (About Us)</h2>
             <p>دی بار بی کیو (The BarBQ) پر تمام کھانوں کی تیاری میں صفائی اور بہترین معیار کا خاص خیال رکھا جاتا ہے۔</p>
-            <p class="owner-highlight">ہوٹل کے مالک اور سرپرستِ اعلیٰ: محترم محمد شبیر صاحب</p>
+            <p class="owner-highlight">ہوٹل کے مالک اور سرپرستِ اعلیٰ: محترم جناب جاوید بھٹی</p>
         </section>
 
         <!-- Menu Section -->
@@ -242,11 +245,9 @@
 
         <!-- Live Location Map Section -->
         <section class="map-section">
-            <h2 class="section-title">ہمارا مقام اور لائیو ٹریکنگ (Find Us & Track)</h2>
-            <p>آپ گوگل میپ کے ذریعے ہمارے ہوٹل کی لوکیشن دیکھ سکتے ہیں اور اپنی دوری چیک کر سکتے ہیں:</p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.5471415053744!2d74.320473!3d31.520370!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDMxJzEzLjMiTiA3NMKwMTknMTMuNyJF!5e0!3m2!1sen!2spk!4v1625000000000!5m2!1sen!2spk" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <h2 class="section-title">ہمارا مقام اور لائیو ٹریکنگ (Find Us on Google Maps)</h2>
+            <p>ہمارے ہوٹل کی اصل لوکیشن دیکھنے اور لائیو راستہ معلوم کرنے کے لیے نیچے دیے گئے بٹن پر کلک کریں:</p>
+            <a href="https://maps.app.goo.gl/zDL5qt82AaVTbPJA6" target="_blank" class="map-btn">📍 Open Google Maps Location</a>
         </section>
 
         <!-- Contact Section -->
@@ -258,13 +259,13 @@
 
     </div>
 
-    <!-- Floating Cart Trigger -->
-    <div class="cart-status" id="cart" onclick="placeOrder()">
-        🛒 <span id="cart-text">0 Items Selected</span> - Place Order Now
+    <!-- Floating WhatsApp Cart Trigger -->
+    <div class="cart-status" id="cart" onclick="placeOrderWhatsApp()">
+        💬 <span id="cart-text">0 Items Selected</span> - Order via WhatsApp
     </div>
 
     <footer>
-        <p>Developed with ❤️ | <strong>made by mudassir shabbir</strong></p>
+        <p>Developed with | <strong>made by mudassir shabbir</strong></p>
     </footer>
 
     <script>
@@ -278,12 +279,15 @@
             cartText.innerText = selectedItems.length + " Item(s) Selected";
         }
 
-        function placeOrder() {
+        function placeOrderWhatsApp() {
             if(selectedItems.length === 0) return;
-            const email = "barbqofficall@gmail.com";
-            const subject = encodeURIComponent("New Food Order from The BarBQ Website");
-            const body = encodeURIComponent("السلام علیکم!\n\nویب سائٹ سے نیا آرڈر موصول ہوا ہے:\n\nآئٹمز: " + selectedItems.join(', ') + "\n\nبراہ کرم آرڈر کنفرم کریں۔\n\nشکریہ!");
-            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+            
+            const whatsappNumber = "923067548302";
+            const message = encodeURIComponent("السلام علیکم!\n\nمیں نے آپ کی ویب سائٹ سے یہ آرڈر منتخب کیا ہے:\n\nآئٹمز: " + selectedItems.join(', ') + "\n\nبراہ کرم میرا آرڈر تیار کر دیں۔ شکریہ!");
+            
+            // Open WhatsApp with the generated text automatically
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+            
             selectedItems = [];
             document.getElementById('cart').style.display = 'none';
         }
