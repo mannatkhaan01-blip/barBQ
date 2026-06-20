@@ -3,193 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The BarBQ - Restaurant Menu & WhatsApp Order</title>
+    <title>The BarBQ - Premium Restaurant Menu</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
         body {
-            background-color: #fcfaf7;
-            color: #333;
+            background-color: #0d0d0d;
+            color: #e0e0e0;
             line-height: 1.6;
         }
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(13, 13, 13, 1)), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px 60px;
+            border-bottom: 4px solid #ff4500;
         }
         header h1 {
-            font-size: 3.5rem;
-            color: #ff6b00;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-            margin-bottom: 10px;
+            font-size: 4rem;
+            color: #ff4500;
+            text-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        header .tagline {
+            font-size: 1.5rem;
+            color: #ffaa00;
+            margin-bottom: 15px;
+            font-style: italic;
         }
         header p {
             font-size: 1.2rem;
             max-width: 600px;
-            margin: 0 auto 20px;
+            margin: 0 auto;
+            color: #ccc;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
         }
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            color: #222;
-            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #fff;
+            margin: 50px 0 30px;
             position: relative;
         }
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
+            width: 100px;
             height: 4px;
-            background-color: #ff6b00;
+            background: linear-gradient(90deg, transparent, #ff4500, transparent);
             margin: 10px auto 0;
-            border-radius: 2px;
+        }
+        .about-box {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            border: 1px solid #333;
+            margin-bottom: 40px;
+        }
+        .about-box p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 15px;
+            color: #bbb;
+        }
+        .owner-highlight {
+            font-weight: bold;
+            color: #ffaa00;
+            font-size: 1.4rem;
+            text-shadow: 0 0 10px rgba(255, 170, 0, 0.2);
         }
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-bottom: 60px;
         }
         .menu-category {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid #ff6b00;
+            background: #151515;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            border: 1px solid #262626;
+            border-top: 5px solid #ff4500;
+            transition: transform 0.3s;
+        }
+        .menu-category:hover {
+            transform: translateY(-5px);
         }
         .menu-category h3 {
-            font-size: 1.5rem;
-            color: #ff6b00;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 8px;
+            font-size: 1.8rem;
+            color: #ffaa00;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .menu-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed #eee;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #333;
         }
         .item-info h4 {
-            font-size: 1.1rem;
-            color: #333;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .item-price-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         .item-price {
             font-weight: bold;
-            color: #e65c00;
+            color: #ff4500;
+            font-size: 1.1rem;
             white-space: nowrap;
         }
         .order-btn {
-            background-color: #ff6b00;
+            background: linear-gradient(135deg, #ff6b00, #ff4500);
             color: white;
             border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
+            padding: 8px 16px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.9rem;
-            margin-left: 10px;
+            font-size: 0.95rem;
+            font-weight: bold;
             transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
         }
         .order-btn:hover {
-            background-color: #e65c00;
-        }
-        .about-box {
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 60px;
-            text-align: center;
-        }
-        .about-box p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto 20px;
-        }
-        .owner-highlight {
-            font-weight: bold;
-            color: #ff6b00;
-            font-size: 1.2rem;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.5);
         }
         .map-section {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 60px;
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             text-align: center;
+            border: 1px solid #333;
+            margin: 50px 0;
+        }
+        .map-section p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #ccc;
         }
         .map-btn {
             display: inline-block;
-            background-color: #4285F4;
+            background: linear-gradient(135deg, #357ae8, #4285F4);
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
+            padding: 14px 30px;
             border-radius: 8px;
             font-weight: bold;
-            margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3);
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4);
             transition: 0.3s;
         }
         .map-btn:hover {
-            background-color: #357ae8;
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(66, 133, 244, 0.6);
         }
         .contact-info {
             text-align: center;
-            background: #222;
+            background: linear-gradient(135deg, #151515, #222);
+            padding: 50px 20px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            margin-bottom: 50px;
+        }
+        .contact-info h2 {
+            margin-bottom: 20px;
             color: #fff;
-            padding: 40px 20px;
-            border-radius: 12px;
-            margin-bottom: 40px;
+        }
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #bbb;
         }
         .contact-info a {
-            color: #ff6b00;
+            color: #ffaa00;
             text-decoration: none;
             font-weight: bold;
         }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
         footer {
-            background-color: #111;
-            color: #aaa;
+            background-color: #050505;
+            color: #888;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             font-size: 1rem;
-            border-top: 3px solid #ff6b00;
+            border-top: 3px solid #ff4500;
         }
         footer strong {
-            color: #fff;
+            color: #ffaa00;
         }
         .cart-status {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background: #25D366;
             color: white;
-            padding: 15px 25px;
-            border-radius: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
             cursor: pointer;
             font-weight: bold;
+            font-size: 1.1rem;
             display: none;
             z-index: 1000;
             transition: 0.3s;
+            animation: bounce 2s infinite;
         }
         .cart-status:hover {
             background: #1ebd58;
-            transform: scale(1.05);
+            transform: scale(1.08);
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
         }
     </style>
 </head>
@@ -197,7 +250,8 @@
 
     <header>
         <h1>The BarBQ</h1>
-        <p>پاکستان کا سب سے بہترین اور لذیذ بار بی کیو، کڑھائی اور ہانڈی پوائنٹ۔</p>
+        <div class="tagline">Grill To Thrill</div>
+        <p>پاکستان کا سب سے بہترین اور لذیذ بار بی کیو، کڑھائی، ہانڈی اور چائنیز پوائنٹ۔</p>
     </header>
 
     <div class="container">
@@ -205,47 +259,153 @@
         <!-- About Section -->
         <section class="about-box">
             <h2 class="section-title">ہمارے بارے میں (About Us)</h2>
-            <p>دی بار بی کیو (The BarBQ) پر تمام کھانوں کی تیاری میں صفائی اور بہترین معیار کا خاص خیال رکھا جاتا ہے۔</p>
-            <p class="owner-highlight">ہوٹل کے مالک اور سرپرستِ اعلیٰ: محترم جناب جاوید بھٹی</p>
+            <p>دی بار بی کیو (The BarBQ) پر تمام کھانوں کی تیاری میں صفائی، خالص مصالحوں اور بہترین معیار کا خاص خیال رکھا جاتا ہے۔</p>
+            <p class="owner-highlight">ہوٹل کے مالک اور سرپرستِ اعلیٰ: محترم محمد شبیر صاحب</p>
         </section>
 
         <!-- Menu Section -->
         <section>
-            <h2 class="section-title">ہمارا مینو (Our Menu)</h2>
+            <h2 class="section-title">ہمارا مینو (Our Full Menu)</h2>
             <div class="menu-grid">
                 
                 <!-- Bar B. Q. -->
                 <div class="menu-category">
                     <h3>🔥 Bar B. Q.</h3>
                     <div class="menu-item">
-                        <div class="item-info"><h4>Special The BBQ Shahi Kabab</h4></div>
-                        <div class="item-price">Rs. 800 / 1500 <button class="order-btn" onclick="addToCart('Special Shahi Kabab')">Order</button></div>
+                        <div class="item-info"><h4>Special Shahi Kabab</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 800 / 1500</span>
+                            <button class="order-btn" onclick="addToCart('Special Shahi Kabab')">Order</button>
+                        </div>
                     </div>
                     <div class="menu-item">
                         <div class="item-info"><h4>Chicken Tikka Boti</h4></div>
-                        <div class="item-price">Rs. 450 / 800 <button class="order-btn" onclick="addToCart('Chicken Tikka Boti')">Order</button></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 450 / 800</span>
+                            <button class="order-btn" onclick="addToCart('Chicken Tikka Boti')">Order</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Chicken Malai Boti</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 500 / 950</span>
+                            <button class="order-btn" onclick="addToCart('Chicken Malai Boti')">Order</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Beef Seekh Kabab</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 600 / 1100</span>
+                            <button class="order-btn" onclick="addToCart('Beef Seekh Kabab')">Order</button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Karahi -->
+                <!-- Karahi & Handi -->
                 <div class="menu-category">
                     <h3>🍲 Karahi & Handi</h3>
                     <div class="menu-item">
                         <div class="item-info"><h4>Special BBQ Chicken Karahi</h4></div>
-                        <div class="item-price">Rs. 1250 / 2300 <button class="order-btn" onclick="addToCart('Special BBQ Chicken Karahi')">Order</button></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 1250 / 2300</span>
+                            <button class="order-btn" onclick="addToCart('Special BBQ Chicken Karahi')">Order</button>
+                        </div>
                     </div>
                     <div class="menu-item">
                         <div class="item-info"><h4>Special BBQ Mutton Karahi</h4></div>
-                        <div class="item-price">Rs. 2000 / 3800 <button class="order-btn" onclick="addToCart('Special BBQ Mutton Karahi')">Order</button></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 2000 / 3800</span>
+                            <button class="order-btn" onclick="addToCart('Special BBQ Mutton Karahi')">Order</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Chicken Achari Karahi</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 1300 / 2400</span>
+                            <button class="order-btn" onclick="addToCart('Chicken Achari Karahi')">Order</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Chicken Makhni Handi</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 1400 (Full)</span>
+                            <button class="order-btn" onclick="addToCart('Chicken Makhni Handi')">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chinese & Rice -->
+                <div class="menu-category">
+                    <h3>🍚 Chinese & Rice</h3>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Chicken Fried Rice</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 550</span>
+                            <button class="order-btn" onclick="addToCart('Chicken Fried Rice')">Order</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Egg Fried Rice</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 450</span>
+                            <button class="order-btn" onclick="addToCart('Egg Fried Rice')">Order</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Chicken Shashlik with Rice</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 750</span>
+                            <button class="order-btn" onclick="addToCart('Chicken Shashlik with Rice')">Order</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Chicken Manchurian</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 700</span>
+                            <button class="order-btn" onclick="addToCart('Chicken Manchurian')">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tawa Special & Roti -->
+                <div class="menu-category">
+                    <h3>🫓 Tawa Special & Roti</h3>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Chicken Tawa Piece</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 400</span>
+                            <button class="order-btn" onclick="addToCart('Chicken Tawa Piece')">Order</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Roghni Naan</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 60</span>
+                            <button class="order-btn" onclick="addToCart('Roghni Naan')">Order</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Garlic Naan</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 80</span>
+                            <button class="order-btn" onclick="addToCart('Garlic Naan')">Order</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info"><h4>Sada Roti / Naan</h4></div>
+                        <div class="item-price-box">
+                            <span class="item-price">Rs. 25 / 40</span>
+                            <button class="order-btn" onclick="addToCart('Sada Roti/Naan')">Order</button>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Live Location Map Section -->
+        <!-- Google Maps Location Section -->
         <section class="map-section">
-            <h2 class="section-title">ہمارا مقام اور لائیو ٹریکنگ (Find Us on Google Maps)</h2>
+            <h2 class="section-title">ہمارا مقام (Find Us on Google Maps)</h2>
             <p>ہمارے ہوٹل کی اصل لوکیشن دیکھنے اور لائیو راستہ معلوم کرنے کے لیے نیچے دیے گئے بٹن پر کلک کریں:</p>
             <a href="https://maps.app.goo.gl/zDL5qt82AaVTbPJA6" target="_blank" class="map-btn">📍 Open Google Maps Location</a>
         </section>
@@ -259,13 +419,13 @@
 
     </div>
 
-    <!-- Floating WhatsApp Cart Trigger -->
+    <!-- Floating WhatsApp Order Notification -->
     <div class="cart-status" id="cart" onclick="placeOrderWhatsApp()">
         💬 <span id="cart-text">0 Items Selected</span> - Order via WhatsApp
     </div>
 
     <footer>
-        <p>Developed with | <strong>made by mudassir shabbir</strong></p>
+        <p>Developed with ❤️ | <strong>made by mudassir shabbir</strong></p>
     </footer>
 
     <script>
@@ -283,9 +443,8 @@
             if(selectedItems.length === 0) return;
             
             const whatsappNumber = "923067548302";
-            const message = encodeURIComponent("السلام علیکم!\n\nمیں نے آپ کی ویب سائٹ سے یہ آرڈر منتخب کیا ہے:\n\nآئٹمز: " + selectedItems.join(', ') + "\n\nبراہ کرم میرا آرڈر تیار کر دیں۔ شکریہ!");
+            const message = encodeURIComponent("السلام علیکم!\n\nمیں نے آپ کی ویب سائٹ سے یہ آرڈر منتخب کیا ہے:\n\nآئٹمز: " + selectedItems.join(', ') + "\n\nبراہ کرم میرا آرڈر کنفرم کر دیں۔ شکریہ!");
             
-            // Open WhatsApp with the generated text automatically
             window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
             
             selectedItems = [];
