@@ -14,8 +14,8 @@
         }
 
         body {
-            background: #fef6f9;
-            color: #2d1b2b;
+            background: #0d0a0c;
+            color: #f0e6ec;
         }
 
         .wrapper {
@@ -24,14 +24,14 @@
             padding: 1rem 2rem 2rem;
         }
 
-        /* Top Bar */
+        /* Top Bar - Dark */
         .top-bar {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             padding: 1rem 0;
-            border-bottom: 3px solid #ffd9e5;
+            border-bottom: 3px solid #3d1f30;
         }
 
         .brand {
@@ -44,7 +44,7 @@
             font-size: 2.6rem;
             font-weight: 700;
             letter-spacing: 2px;
-            background: linear-gradient(135deg, #e8437b, #b32b5e);
+            background: linear-gradient(135deg, #ff6b9d, #d43f7a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -52,27 +52,27 @@
 
         .brand i {
             font-size: 2.8rem;
-            color: #e8437b;
+            color: #ff6b9d;
         }
 
         .owner-tag {
-            background: #ffd9e5;
+            background: #2a1a24;
             padding: 0.4rem 1.5rem;
             border-radius: 40px;
             font-weight: 600;
-            color: #4a1e33;
+            color: #ffb6d0;
             font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 10px rgba(179, 43, 94, 0.1);
+            border: 1px solid #4d2a3d;
         }
 
         .owner-tag i {
-            color: #b32b5e;
+            color: #ff6b9d;
         }
 
-        /* Navigation */
+        /* Navigation - Dark */
         .nav-links {
             display: flex;
             flex-wrap: wrap;
@@ -83,7 +83,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #3f2336;
+            color: #d4b8c9;
             font-weight: 500;
             transition: 0.3s;
             border-bottom: 3px solid transparent;
@@ -92,8 +92,8 @@
         }
 
         .nav-links a:hover {
-            color: #c53b70;
-            border-bottom-color: #c53b70;
+            color: #ff6b9d;
+            border-bottom-color: #ff6b9d;
         }
 
         .social-icons {
@@ -103,19 +103,19 @@
         }
 
         .social-icons a {
-            color: #4a1e33;
+            color: #d4b8c9;
             font-size: 1.8rem;
             transition: 0.3s;
         }
 
         .social-icons a:hover {
-            color: #e8437b;
+            color: #ff6b9d;
             transform: scale(1.15) rotate(5deg);
         }
 
-        /* Hero Section */
+        /* Hero - Dark */
         .hero {
-            background: linear-gradient(145deg, #ffeef4, #ffe1ec);
+            background: linear-gradient(145deg, #1a1117, #2d1b27);
             margin: 2rem 0 2.5rem;
             padding: 3rem 2.5rem;
             border-radius: 80px 20px 80px 20px;
@@ -123,8 +123,8 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 15px 40px rgba(190, 70, 120, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            border: 2px solid #3d1f30;
         }
 
         .hero-text {
@@ -134,27 +134,28 @@
         .hero-text h2 {
             font-size: 3.2rem;
             font-weight: 700;
-            color: #2d1b2b;
+            color: #f0e6ec;
             line-height: 1.2;
         }
 
         .hero-text h2 span {
-            background: #fff0f6;
+            background: #2a1a24;
             padding: 0 15px;
             border-radius: 50px;
-            color: #b32b5e;
+            color: #ff6b9d;
             display: inline-block;
+            border: 1px solid #4d2a3d;
         }
 
         .hero-text p {
             font-size: 1.3rem;
             margin: 0.8rem 0 1.8rem;
-            color: #4d2a3d;
+            color: #c9b0c0;
             font-weight: 400;
         }
 
         .hero-btn {
-            background: #b32b5e;
+            background: linear-gradient(135deg, #d43f7a, #b32b5e);
             border: none;
             padding: 0.9rem 2.8rem;
             border-radius: 60px;
@@ -164,16 +165,16 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 10px 25px rgba(179, 43, 94, 0.35);
+            box-shadow: 0 10px 25px rgba(179, 43, 94, 0.4);
             transition: 0.3s;
             cursor: default;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 10px 25px rgba(179, 43, 94, 0.35); }
-            50% { box-shadow: 0 10px 40px rgba(179, 43, 94, 0.55); }
-            100% { box-shadow: 0 10px 25px rgba(179, 43, 94, 0.35); }
+            0% { box-shadow: 0 10px 25px rgba(179, 43, 94, 0.4); }
+            50% { box-shadow: 0 10px 40px rgba(179, 43, 94, 0.7); }
+            100% { box-shadow: 0 10px 25px rgba(179, 43, 94, 0.4); }
         }
 
         .hero-btn i {
@@ -184,15 +185,15 @@
             flex: 0 1 200px;
             text-align: center;
             font-size: 6rem;
-            color: #b32b5e;
-            background: rgba(255, 255, 255, 0.4);
+            color: #ff6b9d;
+            background: rgba(255, 255, 255, 0.05);
             padding: 0.5rem 2rem;
             border-radius: 120px;
             backdrop-filter: blur(4px);
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            border: 2px solid #3d1f30;
         }
 
-        /* Products Title */
+        /* Products Title - Dark */
         .section-title {
             font-size: 2.2rem;
             font-weight: 700;
@@ -200,21 +201,24 @@
             align-items: center;
             gap: 16px;
             margin: 2.5rem 0 1.5rem;
+            color: #f0e6ec;
         }
 
         .section-title i {
-            color: #e8437b;
+            color: #ff6b9d;
         }
 
         .section-title span {
-            background: #ffe2ed;
+            background: #1f131b;
             padding: 0 18px;
             border-radius: 60px;
             font-size: 1rem;
             font-weight: 400;
+            color: #d4b8c9;
+            border: 1px solid #3d1f30;
         }
 
-        /* Product Grid */
+        /* Product Grid - Dark */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -222,13 +226,13 @@
         }
 
         .product-card {
-            background: white;
+            background: #1a1117;
             border-radius: 30px 10px 30px 10px;
             padding: 1.5rem 1rem 1.5rem;
-            box-shadow: 0 8px 25px rgba(190, 70, 120, 0.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
             text-align: center;
             transition: 0.4s ease;
-            border: 2px solid #ffd9e5;
+            border: 2px solid #2d1b27;
             position: relative;
             overflow: hidden;
         }
@@ -240,7 +244,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 235, 0.1), transparent 70%);
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.05), transparent 70%);
             opacity: 0;
             transition: 0.4s;
         }
@@ -251,8 +255,8 @@
 
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(200, 70, 120, 0.2);
-            border-color: #b32b5e;
+            box-shadow: 0 20px 40px rgba(179, 43, 94, 0.25);
+            border-color: #d43f7a;
         }
 
         .product-card img {
@@ -263,48 +267,49 @@
             object-fit: cover;
             border-radius: 25px;
             margin-bottom: 0.8rem;
-            border: 3px solid #ffe2ed;
+            border: 3px solid #2d1b27;
             transition: 0.4s;
-            background: #fcecf2;
+            background: #0d0a0c;
         }
 
         .product-card img:hover {
             transform: scale(1.05);
-            border-color: #b32b5e;
+            border-color: #d43f7a;
         }
 
         .product-card h4 {
             font-weight: 700;
-            color: #1e131b;
+            color: #f0e6ec;
             margin: 0.4rem 0;
             font-size: 1.1rem;
         }
 
         .product-card .age-badge {
             font-size: 0.75rem;
-            background: #d3a7b9;
-            color: white;
+            background: #2d1b27;
+            color: #ffb6d0;
             padding: 0.25rem 1.2rem;
             border-radius: 30px;
             display: inline-block;
             margin-top: 6px;
             letter-spacing: 0.5px;
             font-weight: 600;
+            border: 1px solid #4d2a3d;
         }
 
-        /* Info Panel */
+        /* Info Panel - Dark */
         .info-panel {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 2rem;
             margin: 3.5rem 0 2rem;
-            background: #ffffffd9;
+            background: #1a1117;
             backdrop-filter: blur(2px);
             border-radius: 60px 20px 60px 20px;
             padding: 2.5rem 3rem;
-            box-shadow: 0 10px 35px rgba(190, 70, 120, 0.08);
-            border: 2px solid #ffd9e5;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+            border: 2px solid #2d1b27;
         }
 
         .info-box {
@@ -316,12 +321,12 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #301e2a;
+            color: #f0e6ec;
             margin-bottom: 0.8rem;
         }
 
         .info-box h3 i {
-            color: #b32b5e;
+            color: #ff6b9d;
             width: 2rem;
         }
 
@@ -329,39 +334,71 @@
         .info-box a {
             display: block;
             margin: 0.5rem 0;
-            color: #2b1b25;
+            color: #d4b8c9;
             font-weight: 400;
             text-decoration: none;
             font-size: 1.05rem;
         }
 
         .info-box a:hover {
-            color: #b32b5e;
+            color: #ff6b9d;
             text-decoration: underline;
         }
 
+        /* JazzCash - Highlighted */
         .jazz-cash {
-            background: #f7eaf0;
+            background: #1f131b;
             border-radius: 50px;
             padding: 0.7rem 1.8rem;
             display: inline-block;
             margin-top: 0.3rem;
-            font-weight: 600;
-            border: 2px dashed #b32b5e;
-            font-size: 1.1rem;
+            font-weight: 700;
+            border: 2px solid #d43f7a;
+            font-size: 1.2rem;
+            color: #ffb6d0;
+            box-shadow: 0 0 20px rgba(212, 63, 122, 0.2);
         }
 
         .jazz-cash i {
             margin-right: 12px;
-            color: #0f7b3a;
+            color: #4caf50;
         }
 
-        /* Footer */
+        /* Delivery Policy - Dark */
+        .delivery-policy {
+            background: #0d0a0c;
+            border: 2px solid #d43f7a;
+            border-radius: 30px;
+            padding: 1.2rem 2rem;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(212, 63, 122, 0.1);
+        }
+
+        .delivery-policy i {
+            color: #ff6b9d;
+            font-size: 1.3rem;
+            margin-right: 12px;
+        }
+
+        .delivery-policy p {
+            color: #ffb6d0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .delivery-policy span {
+            color: #ff6b9d;
+            font-weight: 700;
+        }
+
+        /* Footer - Dark */
         .footer-note {
             text-align: center;
             margin-top: 2.8rem;
-            color: #462d3b;
-            border-top: 2px solid #ffd9e5;
+            color: #a88298;
+            border-top: 2px solid #2d1b27;
             padding-top: 2rem;
             font-size: 1rem;
             display: flex;
@@ -371,7 +408,7 @@
         }
 
         .footer-note i {
-            color: #b32b5e;
+            color: #ff6b9d;
             margin: 0 6px;
         }
 
@@ -379,16 +416,16 @@
             text-align: center;
             margin: 1.2rem 0 0.2rem;
             font-size: 0.9rem;
-            color: #7e4b64;
+            color: #a88298;
             letter-spacing: 0.8px;
-            background: #ffecf2;
+            background: #1a1117;
             border-radius: 50px;
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
             padding: 0.3rem 2.5rem;
             font-weight: 600;
-            border: 2px solid #ffd9e5;
+            border: 2px solid #2d1b27;
         }
 
         /* Responsive */
@@ -429,6 +466,9 @@
             .social-icons a {
                 font-size: 1.4rem;
             }
+            .delivery-policy p {
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -457,7 +497,7 @@
             <div class="brand">
                 <i class="fas fa-crown"></i>
                 <h1>Nani Pari</h1>
-                <span style="font-size: 0.9rem; background: #ffd9e5; padding: 0 14px; border-radius: 40px; margin-left: 6px;">✨ kids</span>
+                <span style="font-size: 0.9rem; background: #2a1a24; padding: 0 14px; border-radius: 40px; margin-left: 6px; color: #ffb6d0; border:1px solid #4d2a3d;">✨ kids</span>
             </div>
             <div class="owner-tag">
                 <i class="fas fa-user-circle"></i> Naveed Basheer
@@ -481,7 +521,7 @@
         <div class="hero">
             <div class="hero-text">
                 <h2>✨ <span>Nani Pari</span> <br>little girls only</h2>
-                <p><i class="fas fa-heart" style="color:#b32b5e;"></i> Stylish, playful & comfy outfits for princesses 2–12 years</p>
+                <p><i class="fas fa-heart" style="color:#ff6b9d;"></i> Stylish, playful & comfy outfits for princesses 2–12 years</p>
                 <div class="hero-btn">
                     <i class="fas fa-gift"></i> Explore collection
                 </div>
@@ -569,6 +609,19 @@
             </div>
         </div>
 
+        <!-- Delivery Policy - NEW -->
+        <div class="delivery-policy">
+            <p>
+                <i class="fas fa-truck"></i> 
+                <span>📦 Delivery Only in Pakistan</span> 
+                <i class="fas fa-map-pin"></i>
+            </p>
+            <p style="font-size: 0.9rem; color: #a88298; margin-top: 6px; font-weight: 400;">
+                <i class="fas fa-check-circle" style="color: #4caf50;"></i> 
+                Delivery sirf or sirf Pakistan k areas tak mahdood hai
+            </p>
+        </div>
+
         <!-- Info Panel -->
         <div class="info-panel">
             <div class="info-box">
@@ -580,29 +633,37 @@
 
             <div class="info-box">
                 <h3><i class="fas fa-credit-card"></i> Payment</h3>
-                <div class="jazz-cash"><i class="fas fa-mobile-alt"></i> JazzCash: 03028602527</div>
-                <p style="margin-top:10px;"><i class="fas fa-user-check"></i> Account: Rashida Ali</p>
-                <p style="font-size:0.95rem; background: #fff0f5; padding:0.3rem 1.2rem; border-radius:40px; display:inline-block; border:1px solid #ffb6cc;">✔️ easy & secure</p>
+                <div class="jazz-cash">
+                    <i class="fas fa-mobile-alt"></i> JazzCash: 03028602527
+                </div>
+                <p style="margin-top:10px; color: #ffb6d0;">
+                    <i class="fas fa-user-check" style="color: #4caf50;"></i> Account: Rashida Ali
+                </p>
+                <p style="font-size:0.95rem; background: #1f131b; padding:0.3rem 1.2rem; border-radius:40px; display:inline-block; border:1px solid #4d2a3d; color: #a88298;">
+                    ✔️ easy & secure
+                </p>
             </div>
 
             <div class="info-box">
                 <h3><i class="fas fa-hashtag"></i> Connect</h3>
                 <a href="https://www.instagram.com/nanhiparifashion?igsi=cjEwdXQwbHZhbzc3" target="_blank"><i class="fab fa-instagram" style="width:22px;"></i> @nanhiparifashion</a>
                 <a href="mailto:Nanhipari1433@gmail.com"><i class="fas fa-envelope" style="width:22px;"></i> Gmail</a>
-                <div style="margin-top:12px; background:#f0e1ea; border-radius: 50px; padding: 0.2rem 1.6rem; display:inline-block; border:1px solid #d3a7b9;"><i class="fas fa-phone"></i> +92306 6959699</div>
+                <div style="margin-top:12px; background:#1f131b; border-radius: 50px; padding: 0.2rem 1.6rem; display:inline-block; border:1px solid #4d2a3d; color: #d4b8c9;">
+                    <i class="fas fa-phone"></i> +92306 6959699
+                </div>
             </div>
         </div>
 
         <!-- Footer -->
         <div class="footer-note">
             <span><i class="fas fa-crown"></i> Nani Pari – only for little girls</span>
-            <span><i class="fas fa-heart" style="color:#b32b5e;"></i> 100% girls fashion</span>
+            <span><i class="fas fa-heart" style="color:#ff6b9d;"></i> 100% girls fashion</span>
             <span><i class="fas fa-tag"></i> Naveed Basheer · Rashida Ali (JazzCash)</span>
             <span><i class="fas fa-child"></i> 2y - 12y</span>
         </div>
 
         <div class="no-adult-badge">
-            <i class="fas fa-ban" style="color:#b32b5e;"></i> no adult wear · only little girls
+            <i class="fas fa-ban" style="color:#ff6b9d;"></i> no adult wear · only little girls
         </div>
     </div>
 </body>
