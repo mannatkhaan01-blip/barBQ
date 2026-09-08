@@ -6,6 +6,7 @@
     <title>Nani Pari ✨ Little Girls Fashion</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <style>
+        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -24,7 +25,12 @@
             padding: 1rem 2rem 2rem;
         }
 
-        /* Top Bar - Dark */
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1117; }
+        ::-webkit-scrollbar-thumb { background: #d43f7a; border-radius: 10px; }
+
+        /* ===== TOP BAR ===== */
         .top-bar {
             display: flex;
             flex-wrap: wrap;
@@ -34,25 +40,84 @@
             border-bottom: 3px solid #3d1f30;
         }
 
-        .brand {
+        /* ===== LOGO ===== */
+        .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 12px;
+            text-decoration: none;
         }
 
-        .brand h1 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d43f7a, #8a1a4a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 0 30px rgba(212, 63, 122, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text .brand-name {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
             background: linear-gradient(135deg, #ff6b9d, #d43f7a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .brand i {
-            font-size: 2.8rem;
+        .logo-text .brand-tagline {
+            font-size: 0.7rem;
+            color: #a88298;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* ===== CART ICON ===== */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: #f0e6ec;
+            transition: 0.3s;
+            background: #1a1117;
+            padding: 10px 14px;
+            border-radius: 50px;
+            border: 1px solid #3d1f30;
+        }
+
+        .cart-icon:hover {
             color: #ff6b9d;
+            border-color: #d43f7a;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #d43f7a;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
         }
 
         .owner-tag {
@@ -61,18 +126,16 @@
             border-radius: 40px;
             font-weight: 600;
             color: #ffb6d0;
-            font-size: 1rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 8px;
             border: 1px solid #4d2a3d;
         }
 
-        .owner-tag i {
-            color: #ff6b9d;
-        }
+        .owner-tag i { color: #ff6b9d; }
 
-        /* Navigation - Dark */
+        /* ===== NAVIGATION ===== */
         .nav-links {
             display: flex;
             flex-wrap: wrap;
@@ -88,7 +151,7 @@
             transition: 0.3s;
             border-bottom: 3px solid transparent;
             padding-bottom: 4px;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
         .nav-links a:hover {
@@ -104,16 +167,16 @@
 
         .social-icons a {
             color: #d4b8c9;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             transition: 0.3s;
         }
 
         .social-icons a:hover {
             color: #ff6b9d;
-            transform: scale(1.15) rotate(5deg);
+            transform: scale(1.15);
         }
 
-        /* Hero - Dark */
+        /* ===== HERO ===== */
         .hero {
             background: linear-gradient(145deg, #1a1117, #2d1b27);
             margin: 2rem 0 2.5rem;
@@ -125,19 +188,28 @@
             justify-content: space-between;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
             border: 2px solid #3d1f30;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-text {
-            flex: 1 1 300px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 63, 122, 0.08), transparent);
+            border-radius: 50%;
         }
 
+        .hero-text { flex: 1 1 300px; position: relative; z-index: 1; }
         .hero-text h2 {
             font-size: 3.2rem;
             font-weight: 700;
             color: #f0e6ec;
             line-height: 1.2;
         }
-
         .hero-text h2 span {
             background: #2a1a24;
             padding: 0 15px;
@@ -146,12 +218,10 @@
             display: inline-block;
             border: 1px solid #4d2a3d;
         }
-
         .hero-text p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin: 0.8rem 0 1.8rem;
             color: #c9b0c0;
-            font-weight: 400;
         }
 
         .hero-btn {
@@ -161,41 +231,36 @@
             border-radius: 60px;
             color: white;
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             display: inline-flex;
             align-items: center;
             gap: 12px;
             box-shadow: 0 10px 25px rgba(179, 43, 94, 0.4);
-            transition: 0.3s;
             cursor: default;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 10px 25px rgba(179, 43, 94, 0.4); }
+            0%, 100% { box-shadow: 0 10px 25px rgba(179, 43, 94, 0.4); }
             50% { box-shadow: 0 10px 40px rgba(179, 43, 94, 0.7); }
-            100% { box-shadow: 0 10px 25px rgba(179, 43, 94, 0.4); }
-        }
-
-        .hero-btn i {
-            font-size: 1.4rem;
         }
 
         .hero-img {
-            flex: 0 1 200px;
+            flex: 0 1 180px;
             text-align: center;
-            font-size: 6rem;
+            font-size: 5rem;
             color: #ff6b9d;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.5rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.5rem 1.5rem;
             border-radius: 120px;
-            backdrop-filter: blur(4px);
             border: 2px solid #3d1f30;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Products Title - Dark */
+        /* ===== SECTION TITLE ===== */
         .section-title {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -203,25 +268,20 @@
             margin: 2.5rem 0 1.5rem;
             color: #f0e6ec;
         }
-
-        .section-title i {
-            color: #ff6b9d;
-        }
-
+        .section-title i { color: #ff6b9d; }
         .section-title span {
             background: #1f131b;
             padding: 0 18px;
             border-radius: 60px;
-            font-size: 1rem;
-            font-weight: 400;
+            font-size: 0.9rem;
             color: #d4b8c9;
             border: 1px solid #3d1f30;
         }
 
-        /* Product Grid - Dark */
+        /* ===== PRODUCT GRID ===== */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 2rem;
         }
 
@@ -233,29 +293,12 @@
             text-align: center;
             transition: 0.4s ease;
             border: 2px solid #2d1b27;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 107, 157, 0.05), transparent 70%);
-            opacity: 0;
-            transition: 0.4s;
-        }
-
-        .product-card:hover::before {
-            opacity: 1;
+            cursor: pointer;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(179, 43, 94, 0.25);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(179, 43, 94, 0.2);
             border-color: #d43f7a;
         }
 
@@ -269,11 +312,11 @@
             margin-bottom: 0.8rem;
             border: 3px solid #2d1b27;
             transition: 0.4s;
-            background: #0d0a0c;
+            cursor: pointer;
         }
 
         .product-card img:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             border-color: #d43f7a;
         }
 
@@ -285,86 +328,204 @@
         }
 
         .product-card .age-badge {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             background: #2d1b27;
             color: #ffb6d0;
             padding: 0.25rem 1.2rem;
             border-radius: 30px;
             display: inline-block;
-            margin-top: 6px;
-            letter-spacing: 0.5px;
-            font-weight: 600;
+            margin-top: 4px;
             border: 1px solid #4d2a3d;
         }
 
-        /* Info Panel - Dark */
-        .info-panel {
+        .product-card .add-to-cart {
+            margin-top: 12px;
+            background: linear-gradient(135deg, #d43f7a, #b32b5e);
+            border: none;
+            padding: 0.5rem 1.8rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-card .add-to-cart:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(179, 43, 94, 0.4);
+        }
+
+        /* ===== IMAGE ZOOM MODAL ===== */
+        .zoom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .zoom-modal.active { display: flex; }
+
+        .zoom-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 20px;
+            border: 3px solid #d43f7a;
+            box-shadow: 0 0 60px rgba(212, 63, 122, 0.3);
+            object-fit: contain;
+        }
+
+        .zoom-modal .close-zoom {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            background: rgba(255,255,255,0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2rem;
-            margin: 3.5rem 0 2rem;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #3d1f30;
+        }
+
+        .zoom-modal .close-zoom:hover {
+            background: #d43f7a;
+            transform: rotate(90deg);
+        }
+
+        /* ===== CART MODAL ===== */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9998;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .cart-modal.active { display: flex; }
+
+        .cart-content {
             background: #1a1117;
-            backdrop-filter: blur(2px);
-            border-radius: 60px 20px 60px 20px;
-            padding: 2.5rem 3rem;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
-            border: 2px solid #2d1b27;
+            border: 2px solid #3d1f30;
+            border-radius: 40px;
+            padding: 2.5rem;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
         }
 
-        .info-box {
-            flex: 1 1 200px;
-        }
-
-        .info-box h3 {
-            font-size: 1.4rem;
+        .cart-content h2 {
+            color: #f0e6ec;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #f0e6ec;
-            margin-bottom: 0.8rem;
         }
 
-        .info-box h3 i {
-            color: #ff6b9d;
-            width: 2rem;
-        }
+        .cart-content h2 i { color: #ff6b9d; }
 
-        .info-box p,
-        .info-box a {
-            display: block;
-            margin: 0.5rem 0;
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #2d1b27;
             color: #d4b8c9;
-            font-weight: 400;
-            text-decoration: none;
-            font-size: 1.05rem;
         }
 
-        .info-box a:hover {
-            color: #ff6b9d;
-            text-decoration: underline;
-        }
-
-        /* JazzCash - Highlighted */
-        .jazz-cash {
-            background: #1f131b;
-            border-radius: 50px;
-            padding: 0.7rem 1.8rem;
-            display: inline-block;
-            margin-top: 0.3rem;
-            font-weight: 700;
-            border: 2px solid #d43f7a;
+        .cart-item .item-name { flex: 1; font-weight: 500; }
+        .cart-item .item-remove {
+            color: #ff4444;
+            cursor: pointer;
             font-size: 1.2rem;
+            transition: 0.3s;
+            background: none;
+            border: none;
+        }
+        .cart-item .item-remove:hover { transform: scale(1.2); }
+
+        .cart-total {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid #3d1f30;
+            color: #f0e6ec;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .cart-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .cart-actions button {
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+            min-width: 150px;
+        }
+
+        .btn-cod {
+            background: #2d1b27;
             color: #ffb6d0;
-            box-shadow: 0 0 20px rgba(212, 63, 122, 0.2);
+            border: 2px solid #4d2a3d;
+        }
+        .btn-cod:hover { background: #3d1f30; }
+
+        .btn-jazz {
+            background: linear-gradient(135deg, #d43f7a, #b32b5e);
+            color: white;
+            box-shadow: 0 8px 25px rgba(179, 43, 94, 0.3);
+        }
+        .btn-jazz:hover { transform: scale(1.03); }
+
+        .btn-close-cart {
+            background: transparent;
+            color: #a88298;
+            border: 2px solid #3d1f30;
+        }
+        .btn-close-cart:hover { background: #2d1b27; }
+
+        .empty-cart {
+            color: #a88298;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 1.2rem;
         }
 
-        .jazz-cash i {
-            margin-right: 12px;
-            color: #4caf50;
-        }
-
-        /* Delivery Policy - Dark */
+        /* ===== DELIVERY POLICY ===== */
         .delivery-policy {
             background: #0d0a0c;
             border: 2px solid #d43f7a;
@@ -372,299 +533,425 @@
             padding: 1.2rem 2rem;
             margin: 1.5rem 0;
             text-align: center;
-            box-shadow: 0 0 30px rgba(212, 63, 122, 0.1);
-        }
-
-        .delivery-policy i {
-            color: #ff6b9d;
-            font-size: 1.3rem;
-            margin-right: 12px;
+            box-shadow: 0 0 30px rgba(212, 63, 122, 0.08);
         }
 
         .delivery-policy p {
             color: #ffb6d0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
         }
 
-        .delivery-policy span {
-            color: #ff6b9d;
+        .delivery-policy i { color: #ff6b9d; margin: 0 8px; }
+        .delivery-policy span { color: #ff6b9d; }
+
+        /* ===== INFO PANEL ===== */
+        .info-panel {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin: 3.5rem 0 2rem;
+            background: #1a1117;
+            border-radius: 60px 20px 60px 20px;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+            border: 2px solid #2d1b27;
+        }
+
+        .info-box { flex: 1 1 200px; }
+        .info-box h3 {
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #f0e6ec;
+            margin-bottom: 0.8rem;
+        }
+        .info-box h3 i { color: #ff6b9d; width: 2rem; }
+        .info-box p, .info-box a {
+            display: block;
+            margin: 0.4rem 0;
+            color: #d4b8c9;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .info-box a:hover { color: #ff6b9d; text-decoration: underline; }
+
+        .jazz-cash {
+            background: #1f131b;
+            border-radius: 50px;
+            padding: 0.7rem 1.8rem;
+            display: inline-block;
             font-weight: 700;
+            border: 2px solid #d43f7a;
+            font-size: 1.1rem;
+            color: #ffb6d0;
         }
+        .jazz-cash i { margin-right: 12px; color: #4caf50; }
 
-        /* Footer - Dark */
+        /* ===== FOOTER ===== */
         .footer-note {
             text-align: center;
             margin-top: 2.8rem;
             color: #a88298;
             border-top: 2px solid #2d1b27;
             padding-top: 2rem;
-            font-size: 1rem;
+            font-size: 0.9rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2.5rem;
+            gap: 2rem;
         }
-
-        .footer-note i {
-            color: #ff6b9d;
-            margin: 0 6px;
-        }
+        .footer-note i { color: #ff6b9d; margin: 0 6px; }
 
         .no-adult-badge {
             text-align: center;
-            margin: 1.2rem 0 0.2rem;
-            font-size: 0.9rem;
+            margin: 1.2rem auto 0.2rem;
+            font-size: 0.8rem;
             color: #a88298;
-            letter-spacing: 0.8px;
             background: #1a1117;
             border-radius: 50px;
             width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
             padding: 0.3rem 2.5rem;
             font-weight: 600;
             border: 2px solid #2d1b27;
         }
 
-        /* Responsive */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .wrapper {
-                padding: 0.8rem 1rem;
-            }
-            .brand h1 {
-                font-size: 2rem;
-            }
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 2rem 1.5rem;
-            }
-            .hero-text h2 {
-                font-size: 2.4rem;
-            }
-            .hero-img {
-                font-size: 4rem;
-                margin-top: 1rem;
-            }
-            .info-panel {
-                flex-direction: column;
-                padding: 1.8rem;
-            }
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 1.2rem;
-            }
-            .section-title {
-                font-size: 1.6rem;
-                flex-wrap: wrap;
-            }
-            .nav-links {
-                gap: 1rem;
-            }
-            .social-icons a {
-                font-size: 1.4rem;
-            }
-            .delivery-policy p {
-                font-size: 1rem;
-            }
+            .wrapper { padding: 0.8rem 1rem; }
+            .logo-text .brand-name { font-size: 1.5rem; }
+            .hero { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+            .hero-text h2 { font-size: 2.2rem; }
+            .hero-img { font-size: 3.5rem; margin-top: 1rem; }
+            .info-panel { flex-direction: column; padding: 1.8rem; }
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.2rem; }
+            .section-title { font-size: 1.6rem; flex-wrap: wrap; }
+            .nav-links { gap: 1rem; }
+            .social-icons a { font-size: 1.3rem; }
+            .cart-content { padding: 1.5rem; margin: 1rem; }
+            .cart-actions { flex-direction: column; }
+            .cart-actions button { min-width: auto; }
+            .top-bar { flex-wrap: wrap; gap: 0.5rem; }
+            .owner-tag { font-size: 0.75rem; padding: 0.2rem 1rem; }
+            .cart-icon { font-size: 1.4rem; padding: 8px 12px; }
         }
 
         @media (max-width: 480px) {
-            .top-bar {
-                flex-direction: column;
-                gap: 0.5rem;
-                text-align: center;
-            }
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            }
-            .hero-text h2 {
-                font-size: 2rem;
-            }
-            .info-box h3 {
-                font-size: 1.2rem;
-            }
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+            .hero-text h2 { font-size: 1.8rem; }
+            .info-box h3 { font-size: 1.1rem; }
+            .zoom-modal .close-zoom { top: 15px; right: 20px; width: 45px; height: 45px; font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
-    <div class="wrapper">
 
-        <!-- Header -->
-        <div class="top-bar">
-            <div class="brand">
-                <i class="fas fa-crown"></i>
-                <h1>Nani Pari</h1>
-                <span style="font-size: 0.9rem; background: #2a1a24; padding: 0 14px; border-radius: 40px; margin-left: 6px; color: #ffb6d0; border:1px solid #4d2a3d;">✨ kids</span>
+<div class="wrapper">
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <div class="logo-icon"><i class="fas fa-crown"></i></div>
+            <div class="logo-text">
+                <span class="brand-name">Nani Pari</span>
+                <span class="brand-tagline">✨ Little Girls Fashion</span>
             </div>
+        </a>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
             <div class="owner-tag">
                 <i class="fas fa-user-circle"></i> Naveed Basheer
             </div>
-        </div>
-
-        <!-- Navigation -->
-        <div class="nav-links">
-            <a href="#"><i class="fas fa-home"></i> Home</a>
-            <a href="#"><i class="fas fa-tshirt"></i> Collection</a>
-            <a href="#"><i class="fas fa-child"></i> Girls (2-12y)</a>
-            <a href="#"><i class="fas fa-tag"></i> New</a>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/nanhiparifashion?igsi=cjEwdXQwbHZhbzc3" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:Nanhipari1433@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+923066959699" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+            <!-- Cart Icon -->
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count" id="cartCount">0</span>
             </div>
-        </div>
-
-        <!-- Hero -->
-        <div class="hero">
-            <div class="hero-text">
-                <h2>✨ <span>Nani Pari</span> <br>little girls only</h2>
-                <p><i class="fas fa-heart" style="color:#ff6b9d;"></i> Stylish, playful & comfy outfits for princesses 2–12 years</p>
-                <div class="hero-btn">
-                    <i class="fas fa-gift"></i> Explore collection
-                </div>
-            </div>
-            <div class="hero-img">
-                <i class="fas fa-female"></i> <i class="fas fa-ribbon"></i>
-            </div>
-        </div>
-
-        <!-- Products -->
-        <div class="section-title">
-            <i class="fas fa-tshirt"></i> <span>🌸 little girls collection</span>
-            <span>2y – 12y</span>
-        </div>
-
-        <div class="product-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/bg6Dyr0q/IMG-20260906-WA0038.jpg" alt="Girls dress 1" loading="lazy">
-                <h4>Floral Princess Dress</h4>
-                <div class="age-badge"><i class="fas fa-child"></i> 4-6y</div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/0j7fvHvQ/IMG-20260906-WA0039.jpg" alt="Girls dress 2" loading="lazy">
-                <h4>Pink Party Gown</h4>
-                <div class="age-badge"><i class="fas fa-child"></i> 6-8y</div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/BVmHJh9V/IMG-20260906-WA0040.jpg" alt="Girls dress 3" loading="lazy">
-                <h4>Summer Skirt Set</h4>
-                <div class="age-badge"><i class="fas fa-child"></i> 8-12y</div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/KzhgNvBr/IMG-20260906-WA0037.jpg" alt="Girls dress 4" loading="lazy">
-                <h4>Baby Girl Frock</h4>
-                <div class="age-badge"><i class="fas fa-child"></i> 2-4y</div>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/TFDD89j/IMG-20260906-WA0035.jpg" alt="Girls dress 5" loading="lazy">
-                <h4>Elegant Party Wear</h4>
-                <div class="age-badge"><i class="fas fa-child"></i> 6-10y</div>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/B2cNH5q7/IMG-20260906-WA0034.jpg" alt="Girls dress 6" loading="lazy">
-                <h4>Casual Summer Dress</h4>
-                <div class="age-badge"><i class="fas fa-child"></i> 4-8y</div>
-            </div>
-
-            <!-- Product 7 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/s9wKc5tY/IMG-20260906-WA0033.jpg" alt="Girls dress 7" loading="lazy">
-                <h4>Traditional Frocks</h4>
-                <div class="age-badge"><i class="fas fa-child"></i> 2-6y</div>
-            </div>
-
-            <!-- Product 8 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/BVNzSnnx/IMG-20260906-WA0030.jpg" alt="Girls dress 8" loading="lazy">
-                <h4>Fancy Gown</h4>
-                <div class="age-badge"><i class="fas fa-child"></i> 8-12y</div>
-            </div>
-
-            <!-- Product 9 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/QFc7BGWC/IMG-20260906-WA0031.jpg" alt="Girls dress 9" loading="lazy">
-                <h4>Floral Skirt Set</h4>
-                <div class="age-badge"><i class="fas fa-child"></i> 4-8y</div>
-            </div>
-
-            <!-- Product 10 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/8DJQPGNv/IMG-20260906-WA0032.jpg" alt="Girls dress 10" loading="lazy">
-                <h4>Princess Collection</h4>
-                <div class="age-badge"><i class="fas fa-child"></i> 6-10y</div>
-            </div>
-        </div>
-
-        <!-- Delivery Policy - NEW -->
-        <div class="delivery-policy">
-            <p>
-                <i class="fas fa-truck"></i> 
-                <span>📦 Delivery Only in Pakistan</span> 
-                <i class="fas fa-map-pin"></i>
-            </p>
-            <p style="font-size: 0.9rem; color: #a88298; margin-top: 6px; font-weight: 400;">
-                <i class="fas fa-check-circle" style="color: #4caf50;"></i> 
-                Delivery sirf or sirf Pakistan k areas tak mahdood hai
-            </p>
-        </div>
-
-        <!-- Info Panel -->
-        <div class="info-panel">
-            <div class="info-box">
-                <h3><i class="fas fa-address-card"></i> Owner</h3>
-                <p><i class="fas fa-user" style="width:22px;"></i> Naveed Basheer</p>
-                <p><i class="fas fa-envelope" style="width:22px;"></i> <a href="mailto:Nanhipari1433@gmail.com">Nanhipari1433@gmail.com</a></p>
-                <p><i class="fas fa-phone-alt" style="width:22px;"></i> <a href="tel:+923066959699">+92306 6959699</a></p>
-            </div>
-
-            <div class="info-box">
-                <h3><i class="fas fa-credit-card"></i> Payment</h3>
-                <div class="jazz-cash">
-                    <i class="fas fa-mobile-alt"></i> JazzCash: 03028602527
-                </div>
-                <p style="margin-top:10px; color: #ffb6d0;">
-                    <i class="fas fa-user-check" style="color: #4caf50;"></i> Account: Rashida Ali
-                </p>
-                <p style="font-size:0.95rem; background: #1f131b; padding:0.3rem 1.2rem; border-radius:40px; display:inline-block; border:1px solid #4d2a3d; color: #a88298;">
-                    ✔️ easy & secure
-                </p>
-            </div>
-
-            <div class="info-box">
-                <h3><i class="fas fa-hashtag"></i> Connect</h3>
-                <a href="https://www.instagram.com/nanhiparifashion?igsi=cjEwdXQwbHZhbzc3" target="_blank"><i class="fab fa-instagram" style="width:22px;"></i> @nanhiparifashion</a>
-                <a href="mailto:Nanhipari1433@gmail.com"><i class="fas fa-envelope" style="width:22px;"></i> Gmail</a>
-                <div style="margin-top:12px; background:#1f131b; border-radius: 50px; padding: 0.2rem 1.6rem; display:inline-block; border:1px solid #4d2a3d; color: #d4b8c9;">
-                    <i class="fas fa-phone"></i> +92306 6959699
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer-note">
-            <span><i class="fas fa-crown"></i> Nani Pari – only for little girls</span>
-            <span><i class="fas fa-heart" style="color:#ff6b9d;"></i> 100% girls fashion</span>
-            <span><i class="fas fa-tag"></i> Naveed Basheer · Rashida Ali (JazzCash)</span>
-            <span><i class="fas fa-child"></i> 2y - 12y</span>
-        </div>
-
-        <div class="no-adult-badge">
-            <i class="fas fa-ban" style="color:#ff6b9d;"></i> no adult wear · only little girls
         </div>
     </div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <div class="nav-links">
+        <a href="#"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-tshirt"></i> Collection</a>
+        <a href="#"><i class="fas fa-child"></i> Girls (2-12y)</a>
+        <a href="#"><i class="fas fa-tag"></i> New</a>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/nanhiparifashion" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:Nanhipari1433@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+923066959699"><i class="fas fa-phone-alt"></i></a>
+        </div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <div class="hero">
+        <div class="hero-text">
+            <h2>✨ <span>Nani Pari</span> <br>little girls only</h2>
+            <p><i class="fas fa-heart" style="color:#ff6b9d;"></i> Stylish, playful & comfy outfits for princesses 2–12 years</p>
+            <div class="hero-btn">
+                <i class="fas fa-gift"></i> Explore Collection
+            </div>
+        </div>
+        <div class="hero-img">
+            <i class="fas fa-female"></i> <i class="fas fa-ribbon"></i>
+        </div>
+    </div>
+
+    <!-- ===== PRODUCTS ===== -->
+    <div class="section-title">
+        <i class="fas fa-tshirt"></i> <span>🌸 little girls collection</span>
+        <span>2y – 12y</span>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+        <!-- Products will be injected by JavaScript -->
+    </div>
+
+    <!-- ===== DELIVERY POLICY ===== -->
+    <div class="delivery-policy">
+        <p>
+            <i class="fas fa-truck"></i>
+            <span>📦 Delivery Only in Pakistan</span>
+            <i class="fas fa-map-pin"></i>
+        </p>
+        <p style="font-size:0.9rem; color:#a88298; margin-top:4px; font-weight:400;">
+            <i class="fas fa-check-circle" style="color:#4caf50;"></i>
+            Delivery sirf or sirf Pakistan k areas tak mahdood hai
+        </p>
+    </div>
+
+    <!-- ===== INFO PANEL ===== -->
+    <div class="info-panel">
+        <div class="info-box">
+            <h3><i class="fas fa-address-card"></i> Owner</h3>
+            <p><i class="fas fa-user" style="width:22px;"></i> Naveed Basheer</p>
+            <p><i class="fas fa-envelope" style="width:22px;"></i> <a href="mailto:Nanhipari1433@gmail.com">Nanhipari1433@gmail.com</a></p>
+            <p><i class="fas fa-phone-alt" style="width:22px;"></i> <a href="tel:+923066959699">+92306 6959699</a></p>
+        </div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-credit-card"></i> Payment</h3>
+            <div class="jazz-cash">
+                <i class="fas fa-mobile-alt"></i> JazzCash: 03028602527
+            </div>
+            <p style="margin-top:8px; color:#ffb6d0;">
+                <i class="fas fa-user-check" style="color:#4caf50;"></i> Account: Rashida Ali
+            </p>
+            <p style="font-size:0.85rem; background:#1f131b; padding:0.2rem 1.2rem; border-radius:40px; display:inline-block; border:1px solid #4d2a3d; color:#a88298;">
+                ✔️ easy & secure
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-hashtag"></i> Connect</h3>
+            <a href="https://www.instagram.com/nanhiparifashion" target="_blank"><i class="fab fa-instagram" style="width:22px;"></i> @nanhiparifashion</a>
+            <a href="mailto:Nanhipari1433@gmail.com"><i class="fas fa-envelope" style="width:22px;"></i> Gmail</a>
+            <div style="margin-top:10px; background:#1f131b; border-radius:50px; padding:0.2rem 1.6rem; display:inline-block; border:1px solid #4d2a3d; color:#d4b8c9;">
+                <i class="fas fa-phone"></i> +92306 6959699
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer-note">
+        <span><i class="fas fa-crown"></i> Nani Pari – only for little girls</span>
+        <span><i class="fas fa-heart" style="color:#ff6b9d;"></i> 100% girls fashion</span>
+        <span><i class="fas fa-tag"></i> Naveed Basheer · Rashida Ali (JazzCash)</span>
+        <span><i class="fas fa-child"></i> 2y - 12y</span>
+    </div>
+
+    <div class="no-adult-badge">
+        <i class="fas fa-ban" style="color:#ff6b9d;"></i> no adult wear · only little girls
+    </div>
+</div>
+
+<!-- ===== IMAGE ZOOM MODAL ===== -->
+<div class="zoom-modal" id="zoomModal" onclick="closeZoom(event)">
+    <span class="close-zoom" onclick="closeZoom(event)"><i class="fas fa-times"></i></span>
+    <img id="zoomImage" src="" alt="Zoom">
+</div>
+
+<!-- ===== CART MODAL ===== -->
+<div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+        <h2><i class="fas fa-shopping-bag"></i> Your Order</h2>
+        <div id="cartItems">
+            <div class="empty-cart">🛍️ Your cart is empty</div>
+        </div>
+        <div class="cart-total" id="cartTotal">Total: Rs. 0</div>
+        <div class="cart-actions">
+            <button class="btn-cod" onclick="checkout('COD')">
+                <i class="fas fa-money-bill-wave"></i> Cash on Delivery
+            </button>
+            <button class="btn-jazz" onclick="checkout('JazzCash')">
+                <i class="fas fa-mobile-alt"></i> Pay Now (JazzCash)
+            </button>
+            <button class="btn-close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i> Close
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ===== PRODUCT DATA =====
+    const products = [
+        { id: 1, name: 'Floral Princess Dress', age: '4-6y', img: 'https://i.ibb.co/bg6Dyr0q/IMG-20260906-WA0038.jpg' },
+        { id: 2, name: 'Pink Party Gown', age: '6-8y', img: 'https://i.ibb.co/0j7fvHvQ/IMG-20260906-WA0039.jpg' },
+        { id: 3, name: 'Summer Skirt Set', age: '8-12y', img: 'https://i.ibb.co/BVmHJh9V/IMG-20260906-WA0040.jpg' },
+        { id: 4, name: 'Baby Girl Frock', age: '2-4y', img: 'https://i.ibb.co/KzhgNvBr/IMG-20260906-WA0037.jpg' },
+        { id: 5, name: 'Elegant Party Wear', age: '6-10y', img: 'https://i.ibb.co/TFDD89j/IMG-20260906-WA0035.jpg' },
+        { id: 6, name: 'Casual Summer Dress', age: '4-8y', img: 'https://i.ibb.co/B2cNH5q7/IMG-20260906-WA0034.jpg' },
+        { id: 7, name: 'Traditional Frocks', age: '2-6y', img: 'https://i.ibb.co/s9wKc5tY/IMG-20260906-WA0033.jpg' },
+        { id: 8, name: 'Fancy Gown', age: '8-12y', img: 'https://i.ibb.co/BVNzSnnx/IMG-20260906-WA0030.jpg' },
+        { id: 9, name: 'Floral Skirt Set', age: '4-8y', img: 'https://i.ibb.co/QFc7BGWC/IMG-20260906-WA0031.jpg' },
+        { id: 10, name: 'Princess Collection', age: '6-10y', img: 'https://i.ibb.co/8DJQPGNv/IMG-20260906-WA0032.jpg' }
+    ];
+
+    // ===== CART STATE =====
+    let cart = [];
+
+    // ===== RENDER PRODUCTS =====
+    function renderProducts() {
+        const grid = document.getElementById('productGrid');
+        grid.innerHTML = products.map(p => `
+            <div class="product-card">
+                <img src="${p.img}" alt="${p.name}" onclick="openZoom('${p.img}')">
+                <h4>${p.name}</h4>
+                <div class="age-badge"><i class="fas fa-child"></i> ${p.age}</div>
+                <button class="add-to-cart" onclick="addToCart(${p.id})">
+                    <i class="fas fa-plus"></i> Add to Cart
+                </button>
+            </div>
+        `).join('');
+    }
+
+    // ===== ADD TO CART =====
+    function addToCart(id) {
+        const product = products.find(p => p.id === id);
+        const existing = cart.find(item => item.id === id);
+        if (existing) {
+            existing.qty += 1;
+        } else {
+            cart.push({ ...product, qty: 1 });
+        }
+        updateCartUI();
+        // Haptic feedback
+        const btn = event.target.closest('.add-to-cart');
+        if (btn) {
+            btn.style.transform = 'scale(0.9)';
+            setTimeout(() => btn.style.transform = 'scale(1)', 200);
+        }
+    }
+
+    // ===== REMOVE FROM CART =====
+    function removeFromCart(id) {
+        cart = cart.filter(item => item.id !== id);
+        updateCartUI();
+    }
+
+    // ===== UPDATE CART UI =====
+    function updateCartUI() {
+        const count = cart.reduce((sum, item) => sum + item.qty, 0);
+        document.getElementById('cartCount').textContent = count;
+
+        const container = document.getElementById('cartItems');
+        const totalEl = document.getElementById('cartTotal');
+
+        if (cart.length === 0) {
+            container.innerHTML = `<div class="empty-cart">🛍️ Your cart is empty</div>`;
+            totalEl.textContent = 'Total: Rs. 0';
+            return;
+        }
+
+        container.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <span class="item-name">${item.name} × ${item.qty}</span>
+                <button class="item-remove" onclick="removeFromCart(${item.id})">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        `).join('');
+
+        const total = cart.reduce((sum, item) => sum + (item.qty * 0), 0); // No prices
+        totalEl.textContent = `Total: ${cart.reduce((s, i) => s + i.qty, 0)} items`;
+    }
+
+    // ===== TOGGLE CART =====
+    function toggleCart() {
+        document.getElementById('cartModal').classList.toggle('active');
+        updateCartUI();
+    }
+
+    // ===== CHECKOUT =====
+    function checkout(method) {
+        if (cart.length === 0) {
+            alert('🛍️ Your cart is empty! Please add some items first.');
+            return;
+        }
+
+        const items = cart.map(i => `${i.name} × ${i.qty}`).join('\n');
+        const totalItems = cart.reduce((s, i) => s + i.qty, 0);
+
+        if (method === 'COD') {
+            alert(
+                `✅ Order Confirmed!\n\n` +
+                `📦 Cash on Delivery\n` +
+                `👗 Items:\n${items}\n` +
+                `📦 Total Items: ${totalItems}\n\n` +
+                `💰 Pay cash to delivery boy when received.`
+            );
+        } else if (method === 'JazzCash') {
+            alert(
+                `💳 Pay Now via JazzCash\n\n` +
+                `📱 JazzCash Number: 03028602527\n` +
+                `👤 Account: Rashida Ali\n` +
+                `👗 Items:\n${items}\n` +
+                `📦 Total Items: ${totalItems}\n\n` +
+                `✅ Please send payment and share screenshot with us.`
+            );
+            // Open JazzCash number in phone dialer
+            window.location.href = 'tel:+923028602527';
+        }
+
+        // Clear cart after checkout
+        cart = [];
+        updateCartUI();
+        toggleCart();
+    }
+
+    // ===== IMAGE ZOOM =====
+    function openZoom(src) {
+        const modal = document.getElementById('zoomModal');
+        const img = document.getElementById('zoomImage');
+        img.src = src;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeZoom(e) {
+        if (e.target === e.currentTarget || e.target.closest('.close-zoom')) {
+            document.getElementById('zoomModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // Close zoom with ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.getElementById('zoomModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('cartModal').classList.remove('active');
+        }
+    });
+
+    // ===== INIT =====
+    renderProducts();
+    updateCartUI();
+</script>
+
 </body>
 </html>
